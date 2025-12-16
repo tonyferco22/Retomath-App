@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetoMath</title>
+    <!-- Tailwind CSS CDN for quick styling without complex setup -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                light: '#E0F7FA', 
+                primary: '#00BCD4', 
+                dark: '#0097A7', 
+                accent: '#FFC107', 
+                orange: '#FF7043', 
+                green: '#66BB6A', 
+                red: '#EF5350', 
+                purple: '#9C27B0', 
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #E0F7FA;
+        background-image: radial-gradient(#B2EBF2 2px, transparent 2px);
+        background-size: 30px 30px;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-bounce-short {
+        animation: bounce-short 0.5s infinite;
+      }
+      @keyframes bounce-short {
+        0%, 100% { transform: translateY(-5%); }
+        50% { transform: translateY(0); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "canvas-confetti": "https://esm.sh/canvas-confetti@^1.9.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- This line is CRITICAL. It tells the build tool where your React app starts -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
