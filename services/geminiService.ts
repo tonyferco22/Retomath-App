@@ -35,17 +35,9 @@ const responseSchema: Schema = {
 };
 
 // Helper function to safely get the API key without crashing the browser
-const getApiKey = () => {
-  try {
-    // Check if process exists (Node/Build env) and has the key
-    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
-      return process.env.API_KEY;
-    }
-  } catch (e) {
-    // Ignore errors if process is not defined in browser
-  }
-  return "";
-};
+
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY ?? "";
+
 
 export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: number = 3): Promise<MathQuestion[]> => {
   const modelName = "gemini-2.5-flash";
@@ -68,7 +60,7 @@ export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: n
   try {
     // 1. Initialize API Client HERE instead of at the top of the file.
     // This prevents the "White Screen of Death" if the key is missing on load.
-    const apiKey = getApiKey();
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     
     if (!apiKey) {
       console.warn("API Key is missing. Using offline mode.");

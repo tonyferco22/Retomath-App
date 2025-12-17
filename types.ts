@@ -37,3 +37,11 @@ export interface UserProfile {
   lastPlayedDate: string; // ISO String YYYY-MM-DD
   language: Language;
 }
+
+interface ImportMetaEnv {
+  readonly VITE_GEMINI_API_KEY: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
