@@ -36,7 +36,7 @@ const responseSchema: Schema = {
 
 // Helper function to safely get the API key without crashing the browser
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY ?? "";
+const apiKey = import.meta.env.GEMINI_API_KEY;
 
 
 export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: number = 3): Promise<MathQuestion[]> => {
