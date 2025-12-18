@@ -60,7 +60,7 @@ export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: n
   try {
     // 1. Initialize API Client HERE instead of at the top of the file.
     // This prevents the "White Screen of Death" if the key is missing on load.
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+   const apiKey = import.meta.env.GEMINI_API_KEY;
     
     if (!apiKey) {
       console.warn("API Key is missing. Using offline mode.");
