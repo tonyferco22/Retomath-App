@@ -36,7 +36,7 @@ const responseSchema: Schema = {
 
 // Helper function to safely get the API key without crashing the browser
 
-const apiKey = import.meta.env.GEMINI_API_KEY;
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 
 export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: number = 3): Promise<MathQuestion[]> => {
@@ -49,47 +49,45 @@ export const fetchQuestions = async (grade: GradeLevel, lang: Language, count: n
   const prompt = `
 ${langInstruction}
 
-Eres un profesor experto en matemáticas para niños y diseñadores de problemas tipo concurso.
+Actúa como un diseñador experto de problemas matemáticos escolares y de olimpiadas.
 
-TAREA:
-Genera EXACTAMENTE ${count} preguntas de matemáticas para estudiantes de ${grade} de primaria.
-
-DIFICULTAD (MUY IMPORTANTE):
-- 1° Primaria: lógica simple, conteo, comparaciones, patrones cortos, problemas de suma, resta, doble y mitad.
-- 2° Primaria: patrones, sumas encadenadas, problemas verbales simples, problemas de doble, mitad y multiplicaciones de una cifra.
-- 3° Primaria: series numéricas, lógica, problemas verbales con 2 pasos, problemas de cuatro operaciones (suma, resta, multiplicación y división), problemas con operaciones continuas.
-- 4° Primaria: razonamiento lógico, patrones complejos, geometría básica, problemas con operaciones continuas (de 2 a 4 pasos), problemas tipo CONAMAT y Canguro Matemático.
-- 5° Primaria: razonamiento avanzado, fracciones simples, múltiplos, divisibilidad, lógica tipo acertijo, problemas de olimpiadas nacionales e internacionales.
+Genera ${count} preguntas de matemáticas DIFERENTES ENTRE SÍ para alumnos de ${grade} de primaria.
 
 REGLAS OBLIGATORIAS:
-1. PROHIBIDO usar preguntas básicas como "2+2", "3+5", etc.
-2. Cada pregunta debe ser DIFERENTE entre sí (no repitas estructuras).
-3. No reutilices preguntas típicas como “tengo 3 manzanas…”.
-4. Las preguntas deben ser retadoras pero comprensibles para el grado.
-5. Usa contexto divertido o interesante (historias, juegos, retos).
-6. Usa emojis con moderación (máx. 1 por pregunta).
-7. Cada pregunta debe tener exactamente 3 opciones.
-8. Solo UNA opción correcta.
-9. No expliques el proceso paso a paso, solo una explicación corta y clara.
+- Las preguntas DEBEN AJUSTARSE estrictamente al nivel ${grade}.
+- A MAYOR grado → MAYOR dificultad.
+- Para 4° y 5° primaria, PROHÍBE sumas y restas simples.
+- NO repitas estructuras ni ideas entre preguntas.
+- NO reutilices preguntas típicas (manzanas, sumas directas, conteo básico).
+- Cada pregunta debe requerir razonamiento, no cálculo directo.
 
-FORMATO DE SALIDA (OBLIGATORIO):
-Devuelve ÚNICAMENTE un array JSON válido con esta estructura exacta:
+TIPOS DE PROBLEMAS (mezclar obligatoriamente):
+- Lógica matemática
+- Series y patrones no evidentes
+- Problemas verbales con varias condiciones
+- Razonamiento proporcional
+- Geometría básica aplicada
+- Pensamiento estratégico (tipo acertijo)
 
-[
-  {
-    "id": "q-1",
-    "questionText": "texto de la pregunta",
-    "options": ["opción A", "opción B", "opción C"],
-    "correctAnswerIndex": 0,
-    "explanation": "explicación corta",
-    "difficulty": "easy | medium | hard"
-  }
-]
+FORMATO DE SALIDA (ESTRICTO):
+Devuelve SOLO un array JSON. Nada de texto adicional.
 
-NO incluyas texto adicional.
-NO incluyas comentarios.
-NO incluyas markdown.
+Cada objeto debe tener exactamente esta estructura:
+{
+  "id": "string único",
+  "questionText": "string",
+  "options": ["A", "B", "C", "D"],
+  "correctAnswerIndex": number,
+  "explanation": "explicación clara y corta",
+  "difficulty": "easy | medium | hard"
+}
+
+REGLAS EXTRA IMPORTANTES:
+- No repitas preguntas entre ejecuciones.
+- Usa contextos variados (tiempo, dinero, figuras, juegos, historias).
+- Usa emojis SOLO si aportan claridad (máx. 1 por pregunta).
 `;
+
 
   try {
     // 1. Initialize API Client HERE instead of at the top of the file.
