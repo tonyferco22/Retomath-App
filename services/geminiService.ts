@@ -133,10 +133,10 @@ REGLAS EXTRA IMPORTANTES:
     const fallbacks: MathQuestion[] = [
       {
         id: "fb-1",
-        questionText: isEs ? "Si tienes 3 manzanas y compras 2 más, ¿cuántas tienes?" : "If you have 3 apples and buy 2 more, how many do you have?",
-        options: ["4", "5", "6"],
+        questionText: isEs ? "Si tienes 7 manzanas y compras 12 más, ¿cuántas tienes?" : "If you have 7 apples and buy 12 more, how many do you have?",
+        options: ["16", "19", "18"],
         correctAnswerIndex: 1,
-        explanation: isEs ? "3 más 2 es igual a 5." : "3 plus 2 equals 5.",
+        explanation: isEs ? "7 más 12 es igual a 19." : "7 plus 12 equals 19.",
         difficulty: "easy"
       },
       {
@@ -154,7 +154,96 @@ REGLAS EXTRA IMPORTANTES:
         correctAnswerIndex: 1,
         explanation: isEs ? "Las mesas tienen patas pero son muebles." : "Tables have legs but are furniture.",
         difficulty: "medium"
-      }
+      },
+        
+      {
+        id: "fb-4",
+        questionText: isEs ? "¿Qué número sigue en la serie? 2, 4, 8, 16..." : "What number comes next? 2, 4, 8, 16...",
+        options: ["20", "32", "24"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "La serie va de 2 en 2." : "The pattern is adding 2.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-5",
+        questionText: isEs ? "Tengo 4 perros y 3 pollos. Cuántas patas hay en total?" : "I have 4 dogs and 3 chickens. how many foots may have?",
+        options:  ["20", "22", "24"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "4x4 + 3x2 = 22." : "4x4 + 3x2 = 22.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-6",
+        questionText: isEs ? "Tengo 4 arañas. ¿Cuántas patas contaré?" : "I have 4 spiders. How many legs they have?",
+        options: ["20", "32", "24"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "4x8 =32." : "4x8 =32",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-7",
+        questionText: isEs ? "Tengo 34 manzanas y me comí la mitad. ¿Cuántas quedan?" : "I have 34 aples and eat half. How many have now?",
+        options: ["18", "17", "14"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "34/2 = 17." : "34/2 = 17.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-8",
+        questionText: isEs ? "Tengo 36 peras y regalé 8. ¿Cuántas me quedan?" : "Tengo 36 peras y regalé 8. ¿Cuántas me quedan?",
+        options: ["28", "17", "24"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "36-8 =28." : "36-8 =28.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-9",
+        questionText: isEs ? "Tengo 4 mesas, cada mesa tiene 6 sillas. ¿Cuantas personas podrán sentarse en total?" : "Tengo 4 mesas, cada mesa tiene 6 sillas. ¿Cuantas personas podrán sentarse en total?",
+        options: ["28", "17", "24"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "6x4 = 24." : "6x4 = 24.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-10",
+        questionText: isEs ? "¿Cuántos lados tiene un triángulo?" : "How many sides have a triangle?",
+        options: ["3", "4", "5"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "3." : "3.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-10",
+        questionText: isEs ? "¿Cuántos lados tiene un pentágono?" : "How many sides have a pentagon?",
+        options: ["3", "4", "5"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "5." : "5.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-10",
+        questionText: isEs ? "¿Cuántos lados tiene un decágono?" : "How many sides have a decagon?",
+        options: ["9", "10", "11"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "10." : "10.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-13",
+        questionText: isEs ? "¿Cuánto es: 15 - 7 x 2?" : "¿Cuánto es: 15 - 7 x 2?",
+        options: ["16", "1", "15"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "Las mesas tienen patas pero son muebles." : "Tables have legs but are furniture.",
+        difficulty: "medium"
+      },
+      {
+        id: "fb-2",
+        questionText: isEs ? "¿Qué número sigue en la serie? 2, 6, 10, 14..." : "What number comes next? 2, 6, 10, 14...",
+        options: ["19", "18", "17"],
+        correctAnswerIndex: 1,
+        explanation: isEs ? "La serie va de 4 en 4." : "The pattern is adding 4.",
+        difficulty: "easy"
+      },
     ];
 
     return fallbacks;
